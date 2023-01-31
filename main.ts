@@ -31,6 +31,9 @@ input.onButtonPressed(Button.B, function () {
 })
 input.onGesture(Gesture.Shake, function () {
     OLED.clear()
+    reset()
+})
+function reset () {
     PA = 0
     PB = 0
     Ties = 0
@@ -38,16 +41,10 @@ input.onGesture(Gesture.Shake, function () {
     OLED.writeStringNewLine("Let's play a game!")
     basic.pause(2000)
     scoreboard()
-})
+}
 let Rounds = 0
 let Ties = 0
 let PB = 0
 let PA = 0
 OLED.init(128, 64)
-PA = 0
-PB = 0
-Ties = 0
-Rounds = 0
-OLED.writeStringNewLine("Let's play a game!")
-basic.pause(2000)
-scoreboard()
+reset()
